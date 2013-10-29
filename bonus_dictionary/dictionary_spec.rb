@@ -1,4 +1,4 @@
-require 'dictionary'
+require './dictionary'
 
 describe Dictionary do
   before do

@@ -1,7 +1,7 @@
 # Timer formats a given # of seconds
 # into something you see on a stopwatch, i.e. 00:00:00 or 00:10:22 
 
-require 'timer'
+require './timer'
 
 describe "Timer" do
 
@@ -41,17 +41,17 @@ describe "Timer" do
   # One way to implement the Timer is with a helper method.
   # This helper method would be called by time_string.
   # Uncomment these specs if you want to be tested for this helper method.
-  #
-  # describe 'padded' do
-  #   it 'pads zero' do
-  #     @timer.padded(0).should == '00'
-  #   end
-  #   it 'pads one' do
-  #     @timer.padded(1).should == '01'
-  #   end
-  #   it "doesn't pad a two-digit number" do
-  #     @timer.padded(12).should == '12'
-  #   end
-  # end
+  
+  describe 'padded' do
+    it 'pads zero' do
+      @timer.padded(0).should == '00'
+    end
+    it 'pads one' do
+      @timer.padded(1).should == '01'
+    end
+    it "doesn't pad a two-digit number" do
+      @timer.padded(12).should == '12'
+    end
+  end
 
 end

@@ -1,4 +1,4 @@
-require "silly_blocks"
+require "./silly_blocks"
 
 describe "some silly block functions" do
 
