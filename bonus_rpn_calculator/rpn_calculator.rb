@@ -13,31 +13,41 @@ class RPNCalculator
 		@stack << num.to_f
 	end
 
+	def validate		
+		raise("calculator is empty") if @stack.size < 2
+	end
+
 	def plus
+		validate
 		@stack.push(@stack.pop + @stack.pop)
 		update_value
 	end
 
 	def minus
+		validate
 		x = @stack[-2] - @stack[-1]
-		@stack.pop(2) 
+		@stack.pop(2)
 		@stack.push(x)
 		update_value
 	end
 
-	# def times
-	# 	if @stack.length>1; @value *= (@stack.pop * @stack.pop)
-	# 	elsif @stack.length==1; @value*=@stack.pop
-	# 	else; @value; end
-	# end
+	def times
+		validate
+		@stack.push(@stack.pop * @stack.pop)
+		update_value
+	end
 
-	# def divide
-	# 	if @stack.length>1; @value = (@stack.pop / @stack.pop)
-	# 	elsif @stack.length==1; @value/=@stack.pop
-	# 	else; @value; end
-	# end
+	def divide
+		validate
+		x = @stack[-2] / @stack[-1]
+		@stack.pop(2)
+		@stack.push(x)
+		update_value
+	end
+
+	def tokens(string)
+		operators = %w(+ - * % /)
+		string.split(" ").map { |x| (operators.include? x) ? x.to_sym : x.to_i}
+	end
+
 end
-# calculator=RPNCalculator.new
-#     calculator.push(2)
-#     calculator.push(3)
-#     puts calculator.plus
