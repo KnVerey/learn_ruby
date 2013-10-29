@@ -29,7 +29,7 @@
 # Ruby doesn't have a built-in stack, but the standard Array
 # has all the methods you need to emulate one (namely, `push` and `pop`, and optionally `size`).
 
-require "rpn_calculator"
+require "./rpn_calculator"
 
 describe RPNCalculator do
 
