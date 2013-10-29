@@ -50,4 +50,21 @@ class RPNCalculator
 		string.split(" ").map { |x| (operators.include? x) ? x.to_sym : x.to_i}
 	end
 
+	def evaluate(string)
+		tokens(string).each do |item|
+			if item==:+
+				plus
+			elsif item==:-
+				minus
+			elsif item==:*
+				times
+			elsif item==:/
+				divide
+			else
+				push(item)
+			end
+ 		end
+ 		@value
+	end
+
 end

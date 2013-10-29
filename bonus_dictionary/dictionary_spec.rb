@@ -1,4 +1,5 @@
 require './dictionary'
+require 'rspec'
 
 describe Dictionary do
   before do
